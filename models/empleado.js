@@ -5,7 +5,8 @@ const EmpleadoSchema = new Schema({
     name: { type: String, required: true },
     position: { type: String, required: true },
     office: { type: String, required: true },
-    salary: { type: Number, required: true }
+    salary: { type: Number, required: true },
+    blnActivo: { type: Boolean, required: true }
 });
 
 module.exports = mongoose.model('Empleado', EmpleadoSchema);

@@ -3,6 +3,7 @@
 * se requiere primero el modelo empleado
 */
 
+const { ObjectId } = require('mongodb');
 const Empleado     = require('../models/empleado');
 const empleadoCtrl = {};
 
@@ -20,20 +21,15 @@ empleadoCtrl.createEmpleados = async (req, res) => {
 
 //Obtener los empleados
 empleadoCtrl.getEmpleados = async (req, res) => {
-    const empleados = await Empleado.find();
-    console.log("empleados",empleados);
+    const {id} = req.query;
+    const empleados = id? await Empleado.find({_id: new ObjectId(id)}) : await Empleado.find();
     res.json(empleados);
 }
 
-//Obtener un empleado
-empleadoCtrl.getEmpleado = async (req, res) => {
-    const empleado = await Empleado.findById(req.params.id);
-    res.json(empleado);
-}
 
 //Actualizar empleado
 empleadoCtrl.editEmpleado = async (req, res) => {
-    const {id} = req.params;
+    const {id} = req.query;
     const empleadoEdit = {
         name: req.body.name,
         position: req.body.position,
@@ -46,7 +42,8 @@ empleadoCtrl.editEmpleado = async (req, res) => {
 
 //Eliminar empleado
 empleadoCtrl.deleteEmpleado = async (req, res) => {
-    await Empleado.findByIdAndDelete(req.params.id);
+    const {id} = req.query;
+    await Empleado.findByIdAndDelete(id);
     res.json({status: 'Empleado Eliminado'});
 }
 
