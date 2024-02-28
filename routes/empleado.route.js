@@ -16,6 +16,8 @@ const empleadoCtrl = require('../controllers/empleado.controller');
  * @swagger
  * /api/empleados:
  *   get:
+ *     tags:
+ *       - Empleados
  *     parameters:
  *     - in: query
  *       name: id
