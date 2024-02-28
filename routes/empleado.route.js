@@ -13,7 +13,7 @@ const empleadoCtrl = require('../controllers/empleado.controller');
  */
 
 /**
- * @openapi
+ * @swagger
  * /api/empleados:
  *   get:
  *     parameters:
@@ -21,10 +21,28 @@ const empleadoCtrl = require('../controllers/empleado.controller');
  *       name: id
  *       type: string
  *       required: false
- #       description: String ID of the user to get.
  *     responses:
- *       200:
- *         description: Returns an Array of employees of Json type.
+ *       '200':
+ *         description: Success
+ *         content:
+ *           application/json:
+ *             schema:
+ *              items:
+ *                  anyOf:
+ *                     - $ref: '#/components/schemas/empleado'
+ * 
+ *       '400':
+ *         description: Bad request
+ * 
+ *       '401':
+ *         description: Unauthorized 
+ * 
+ *       '404':
+ *         description: Not Found
+ *                     
+ *       '500':
+ *         description: Server Error
+ *          
  */
 router.get('/', empleadoCtrl.getEmpleados);
 router.post('/', empleadoCtrl.createEmpleados);

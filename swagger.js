@@ -1,12 +1,15 @@
 const swaggerJSDoc = require('swagger-jsdoc');
+const empleadoSchema = require('./schemas/empleado.schema');
 
 const swaggerDefinition = {
     openapi: '3.0.0',
     info: {
-        title: 'My API',
+        title: 'Back-End API`S',
         version: '1.0.0',
-        description: 'My API Description',
+        description: 'Ejemplo de como mandar a llamar las apis de este proyecto.',
     },
+    //Schemas
+    components: empleadoSchema,
 };
 
 const options = {
