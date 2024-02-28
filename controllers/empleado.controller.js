@@ -29,20 +29,16 @@ empleadoCtrl.getEmpleados = async (req, res) => {
 
 //Actualizar empleado
 empleadoCtrl.editEmpleado = async (req, res) => {
-    const {id} = req.query;
-    const empleadoEdit = {
-        name: req.body.name,
-        position: req.body.position,
-        office: req.body.office,
-        salary: req.body.salary
-    }
+    const {id} = req.params;
+    let empleadoEdit = new Empleado(req.body); //obligamos que los datos sean solo de tipo del squema.
+    empleadoEdit._id = id;
     await Empleado.findByIdAndUpdate(id, {$set: empleadoEdit}, {new: true});
     res.json({status: 'Empleado actualizado'});
 }
 
 //Eliminar empleado
 empleadoCtrl.deleteEmpleado = async (req, res) => {
-    const {id} = req.query;
+    const {id} = req.params;
     await Empleado.findByIdAndDelete(id);
     res.json({status: 'Empleado Eliminado'});
 }
