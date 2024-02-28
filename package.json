@@ -4,7 +4,8 @@
   "description": "Demo proyecto backend uso de node, mongoose, morgan,etx",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js "
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,8 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
   }
 }
