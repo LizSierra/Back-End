@@ -17,6 +17,7 @@ app.use(cors({origin: '*'})); // metodo para comunicar con el cliente
 
 // rutas de nuestro servidor
 app.use('/api/empleados',require('./routes/empleado.route'));
+app.use('/api/users',require('./routes/user.route'));
 
 
 // Serve Swagger documentation
