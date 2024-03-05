@@ -1,5 +1,6 @@
 const swaggerJSDoc = require('swagger-jsdoc');
 const empleadoSchema = require('./schemas/empleado.schema');
+const userSchema = require('./schemas/user.schema');
 
 const swaggerDefinition = {
     openapi: '3.0.0',
@@ -10,6 +11,7 @@ const swaggerDefinition = {
     },
     //Schemas
     components: empleadoSchema,
+    components: userSchema
 };
 
 const options = {

@@ -11,7 +11,7 @@ module.exports = {
             "type": "string",
             "example": "jesus.alf@gmail.com"
           },
-          "age": {
+          "nmbAge": {
             "type": "number",
             "example": 26
           },

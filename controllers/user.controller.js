@@ -15,6 +15,7 @@ const userCtrl = {};
 
 userCtrl.createUsers = async (req, res) => {
     const user = new User(req.body);
+    console.log(user);
     await user.save();
     res.json({status: 'Usuario guardado'});
 }
