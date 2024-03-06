@@ -49,6 +49,8 @@ router.delete('/:id', userCtrl.deleteUser);
  *                     
  *       '500':
  *         description: Server Error
+ *     security:
+ *      - ApiKeyAuth: []  
  *          
  */
 
@@ -83,6 +85,8 @@ router.delete('/:id', userCtrl.deleteUser);
  *                     
  *       '500':
  *         description: Server Error
+ *     security:
+ *      - ApiKeyAuth: []  
  *          
  */
 
@@ -124,6 +128,8 @@ router.delete('/:id', userCtrl.deleteUser);
  *                     
  *       '500':
  *         description: Server Error
+ *     security:
+ *      - ApiKeyAuth: []  
  *          
  */
 
@@ -160,6 +166,8 @@ router.delete('/:id', userCtrl.deleteUser);
  *                     
  *       '500':
  *         description: Server Error
+ *     security:
+ *      - ApiKeyAuth: []  
  *          
  */
 

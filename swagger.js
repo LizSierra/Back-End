@@ -10,6 +10,13 @@ const swaggerDefinition = {
     },
     //Schemas
     components: {
+        securitySchemes:{
+            ApiKeyAuth: {
+                type: "apiKey",
+                in: "header",
+                name: "Authorization"
+            }
+        },
         schemas: {
             empleado,
             user
