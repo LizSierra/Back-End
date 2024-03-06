@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express   = require('express')
 const morgan    = require('morgan');
 const cors      = require('cors');
@@ -10,7 +12,8 @@ const swaggerSpec = require('./swagger');
 /** * Se crea una REST API, es la manera de decirle al servidor que reciba y envie datos  */
 
 // Configuraciones
-app.set('port', process.env.PORT || 3000);
+const port = process.env.PORT || 3000
+app.set('port', port);
 app.use(morgan('dev')); 
 app.use(express.json()); // metodo que ayuda a convertir el codigo para que el servidor pueda entender lo que viene del cliente.
 app.use(cors({origin: '*'})); // metodo para comunicar con el cliente
@@ -25,7 +28,4 @@ app.use('/api/login', require('./routes/login.route'));
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 // Iniciando el servidor
-app.listen(app.get('port'), () => {// esta es una mejor manera de configurar el puerto
-    console.log('server activo en el puerto', app.get('port'));
-    console.log(`Api Swagger on http://localhost:${app.get('port')}/api-docs`);
-}); 
+app.listen(port, () => console.log(`Server online on port: ${port} \nApi Swagger on http://localhost:${port}/api-docs`)); // esta es una mejor manera de configurar el puerto

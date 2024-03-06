@@ -7,7 +7,7 @@ const tokenGenerator = async (data) => {
             }
         },
         data
-    }, 'secret', { expiresIn: '1h' });
+    }, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRES });
 }
 
 module.exports = tokenGenerator;

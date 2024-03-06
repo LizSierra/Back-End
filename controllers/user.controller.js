@@ -27,15 +27,6 @@ userCtrl.getUsers = async (req, res) => {
     res.json(users);
 }
 
-userCtrl.getUserLogin = async (req, res) => {
-    // console.log(req);
-    // const { strEmail, password } = req.query;
-    // const user = { strEmail, password}? await User.find({strEmail: strEmail}, {password: password}): await User.find();
-    // console.log(user);
-    // res.json(user);
-}
-
-
 //Actualizar Usuario
 userCtrl.editUser = async (req, res) => {
     const {id} = req.params;
