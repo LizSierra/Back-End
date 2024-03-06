@@ -2,10 +2,10 @@
 * Se coloca el controlador como un objeto y luego se exporta como
 * se requiere primero el modelo user
 */
-
-const { ObjectId } = require('mongodb');
-const User     = require('../models/user');
-const userCtrl = {};
+const { ObjectId }  = require('mongodb');
+const Bcrypt        = require('bcrypt');
+const User          = require('../models/user');
+const userCtrl      = {};
 
 /**
  * Definir metodos
@@ -15,7 +15,7 @@ const userCtrl = {};
 
 userCtrl.createUsers = async (req, res) => {
     const user = new User(req.body);
-    console.log(user);
+    user.password = Bcrypt.hashSync(req.body.password, 10);
     await user.save();
     res.json({status: 'Usuario guardado'});
 }
@@ -23,7 +23,7 @@ userCtrl.createUsers = async (req, res) => {
 //Obtener los Usuarios
 userCtrl.getUsers = async (req, res) => {
     const {id} = req.query;
-    const users = id? await User.find({_id: new ObjectId(id)}) : await User.find();
+    const users = id? await User.find({_id: new ObjectId(id)}, {password: 0}) : await User.find({}, {password: 0});
     res.json(users);
 }
 
