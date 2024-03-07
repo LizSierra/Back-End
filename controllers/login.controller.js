@@ -17,7 +17,7 @@ loginCtrl.login = async(req, res) => {
     user.password = undefined;
     user.__v = undefined;
     
-    tokenGenerator(user).then(token => res.status(200).send(token));
+    tokenGenerator(user).then(token => res.status(200).send({token}));
     
 }
 
