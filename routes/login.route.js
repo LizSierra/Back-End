@@ -9,7 +9,7 @@ router.post('/', loginCtrl.login);
  * /api/login:
  *   post:
  *     tags:
- *       - Log in
+ *       - Authorization
  *     requestBody:
  *       content:      
  *         application/json:

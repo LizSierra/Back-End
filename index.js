@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./middlewares/index');
 
 const express   = require('express')
 const morgan    = require('morgan');

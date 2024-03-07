@@ -5,13 +5,14 @@
 
 const express      = require('express');
 const router       = express.Router();
-const userCtrl = require('../controllers/user.controller');
+const userCtrl     = require('../controllers/user.controller');
 
 /**
  * Manejador de ruta para la ruta raiz ("/").
  * Este manejador respondera con un mensaje JSON indicando que la API REST esta funcionando.
  */
 
+router.use( process.middlewares );
 router.get('/', userCtrl.getUsers);
 router.post('/', userCtrl.createUsers);
 router.put('/:id', userCtrl.editUser);
