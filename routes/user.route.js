@@ -12,9 +12,10 @@ const userCtrl     = require('../controllers/user.controller');
  * Este manejador respondera con un mensaje JSON indicando que la API REST esta funcionando.
  */
 
+router.post('/', userCtrl.createUsers);
+
 router.use( process.middlewares );
 router.get('/', userCtrl.getUsers);
-router.post('/', userCtrl.createUsers);
 router.put('/:id', userCtrl.editUser);
 router.delete('/:id', userCtrl.deleteUser);
 
@@ -86,8 +87,6 @@ router.delete('/:id', userCtrl.deleteUser);
  *                     
  *       '500':
  *         description: Server Error
- *     security:
- *      - ApiKeyAuth: []  
  *          
  */
 
